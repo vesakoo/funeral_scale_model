@@ -1,5 +1,13 @@
 #include <Stepper.h>
-
+/**
+ This program is a first test version for controlling Alien.
+ Program starts when systemStartButton is pressed.
+ program will initialize alien postition by turning step motor down 
+ untill PIN_ALIEN_DOWN_SWITC indikates voltage > 0
+ then it lift it ALIEN_HOMESEEK_STEPLENGTH steps per round until
+ PIN_ALIEN_DOWN_SWITCH indikates 0 voltage (this is home position of Alien)
+ Then alien is lifted by 90 steps, being there for 5 seconds and brought back down 90 steps.
+*/
 const int TOTAL_STEPS = 100; //stp motor total steps
 const int PIN_STEPPER_A = 10;
 const int PIN_STEPPER_B = 9;
@@ -21,8 +29,8 @@ Stepper alienMover(TOTAL_STEPS,PIN_STEPPER_A,PIN_STEPPER_B);
 
 
 void setup() {
-  pinMode(PIN_SYSTEM_START_BTN, INPUT);
-  pinMode(PIN_ALIEN_DOWN_SWITCH,INPUT);
+  //pinMode(PIN_SYSTEM_START_BTN, INPUT);
+  //pinMode(PIN_ALIEN_DOWN_SWITCH,INPUT);
   alienMover.setSpeed(ALIEN_SPEED); // we set motor speed at 30
 
 }
